@@ -1,4 +1,5 @@
-@import "tailwindcss/preflight";
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
 @layer base {
@@ -65,7 +66,43 @@
   }
 }
 
-@layer utilities {
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/40 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/60;
+  }
+}
+
+@layer components {
   .hero-content {
     @apply rounded-xl p-8;
     background-color: rgba(255, 255, 255, 0.1);
@@ -82,7 +119,9 @@
   .hero-gradient {
     @apply bg-gradient-to-r from-purple-500 to-indigo-600;
   }
+}
 
+@layer utilities {
   .animation-delay-200 {
     animation-delay: 200ms;
   }
@@ -90,40 +129,6 @@
   .animation-delay-400 {
     animation-delay: 400ms;
   }
-}
-
-* {
-  @apply border-border;
-}
-
-body {
-  @apply bg-background text-foreground;
-  font-feature-settings: "rlig" 1, "calt" 1;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-bold tracking-tight;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-muted;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-muted-foreground/40 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-muted-foreground/60;
 }
 
 .prose pre {
@@ -138,4 +143,3 @@ h6 {
 .prose code::after {
   content: "";
 }
-
