@@ -50,7 +50,7 @@ export default function Navbar() {
             href="/"
             className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600"
           >
-            JS.dev
+            Ac.dev
           </Link>
 
           <nav className="hidden md:flex items-center space-x-1">

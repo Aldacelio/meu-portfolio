@@ -8,8 +8,8 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Antonio Aldacélio | Desenvolvedor Full Stack",
-  description: "Portfolio de Antonio Aldacélio, desenvolvedor Full Stack especializado em React, Next.js e Java.",
+  title: "Aldacélio Cavalcante | Desenvolvedor Full Stack",
+  description: "Portfolio de Aldacélio Cavalcante, desenvolvedor Full Stack especializado em React, Next.js e Java.",
 }
 
 export default function RootLayout({
@@ -31,6 +31,7 @@ export default function RootLayout({
             <main className="flex-grow">
               {children}
             </main>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
