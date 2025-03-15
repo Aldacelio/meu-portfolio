@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import { Inter } from 'next/font/google'
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { ThemeToggle } from "@/components/theme-toggle"
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -26,9 +27,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="min-h-screen flex flex-col">
-            <header className="p-4 flex justify-end">
-              <ThemeToggle />
-            </header>
+            <Navbar />
             <main className="flex-grow">
               {children}
             </main>
