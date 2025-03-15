@@ -2,13 +2,14 @@ import type { Metadata } from "next"
 import { Inter } from 'next/font/google'
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { ThemeToggle } from "@/components/theme-toggle"
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Antonio Aldacélio | Desenvolvedor Full Stack",
-  description: "Portfolio de Antonio Aldacélio, desenvolvedor Full Stack especializado em React, Next.js e Java.",
+  title: "Aldacélio Cavalcante | Desenvolvedor Full Stack",
+  description: "Portfolio de Aldacélio Cavalcante, desenvolvedor Full Stack especializado em React, Next.js e Java.",
 }
 
 export default function RootLayout({
@@ -26,12 +27,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="min-h-screen flex flex-col">
-            <header className="p-4 flex justify-end">
-              <ThemeToggle />
-            </header>
+            <Navbar />
             <main className="flex-grow">
               {children}
             </main>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

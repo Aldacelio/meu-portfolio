@@ -3,7 +3,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
       <div className="max-w-2xl w-full text-center space-y-8">
         <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600">
-          Antonio Aldacélio
+          Aldacélio Cavalcante
         </h1>
         
         <p className="text-xl text-foreground">
