@@ -8,12 +8,12 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="flex space-x-4">
             <Button variant="ghost" size="icon" asChild className="h-8 w-8">
-              <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/Aldacelio" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-4 w-4" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild className="h-8 w-8">
-              <a href="https://linkedin.com/in/username" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/antonio-aldac%C3%A9lio-a42a1212b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-4 w-4" />
               </a>
             </Button>
@@ -23,7 +23,7 @@ export default function Footer() {
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild className="h-8 w-8">
-              <a href="https://instagram.com/username" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="https://www.instagram.com/dudu.oli132/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <Instagram className="h-4 w-4" />
               </a>
             </Button>
