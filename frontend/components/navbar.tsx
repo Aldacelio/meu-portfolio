@@ -41,14 +41,14 @@ export default function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5",
+        isScrolled ? "bg-primary/80 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5",
       )}
     >
       <div className="container px-4 mx-auto">
         <div className="flex items-center justify-between">
           <Link
             href="/"
-            className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600"
+            className="text-2xl font-bold bg-clip-text text-transparent animation-gradient"
           >
             Ac.dev
           </Link>
@@ -88,7 +88,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background border-t mt-2 py-4">
+        <div className="md:hidden bg-primary border-t mt-2 py-4">
           <nav className="container px-4 mx-auto flex flex-col space-y-3">
             {navItems.map((item) => (
               <Button
