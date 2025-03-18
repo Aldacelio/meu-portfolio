@@ -3,7 +3,7 @@ import { Github, Linkedin, Twitter, Instagram } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-muted/20 border-t">
+    <footer className="bg-primary/50 border-t">
       <div className="container px-4 mx-auto py-8">
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="flex space-x-4">
@@ -29,7 +29,7 @@ export default function Footer() {
             </Button>
           </div>
           
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-primary-foreground">
             © {new Date().getFullYear()} Aldacélio Cavalcante. Todos os direitos reservados.
           </p>
         </div>
