@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Menu, X } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Início", href: "/" },
@@ -15,33 +15,49 @@ const navItems = [
   { label: "Sobre", href: "/#about" },
   { label: "Contato", href: "/#contact" },
   { label: "Blog", href: "/blog" },
-]
+];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+      setIsScrolled(window.scrollY > 10);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/"
-    if (href.startsWith("/#")) return pathname === "/"
-    return pathname.startsWith(href)
-  }
+    if (href === "/") return pathname === "/";
+    if (href.startsWith("/#")) return pathname === "/";
+    return pathname.startsWith(href);
+  };
+
+  const handleSmoothScroll = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    href: string
+  ) => {
+    event.preventDefault();
+
+    if (href === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (href.startsWith("/#")) {
+      const id = href.split("#")[1];
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-primary/80 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5",
+        isScrolled
+          ? "bg-primary/80 backdrop-blur-md shadow-sm py-3"
+          : "bg-transparent py-5"
       )}
     >
       <div className="container px-4 mx-auto">
@@ -62,10 +78,17 @@ export default function Navbar() {
                 asChild
                 className={cn(
                   "text-sm font-medium transition-colors",
-                  isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                  isActive(item.href)
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                <Link href={item.href}>{item.label}</Link>
+                <Link
+                  href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
+                >
+                  {item.label}
+                </Link>
               </Button>
             ))}
           </nav>
@@ -79,7 +102,11 @@ export default function Navbar() {
               className="md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
               <span className="sr-only">Toggle menu</span>
             </Button>
           </div>
@@ -98,7 +125,9 @@ export default function Navbar() {
                 asChild
                 className={cn(
                   "justify-start text-base font-medium transition-colors",
-                  isActive(item.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                  isActive(item.href)
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -109,5 +138,5 @@ export default function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }
