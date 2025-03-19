@@ -147,7 +147,7 @@ export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("frontend");
 
   return (
-    <section id="skills" className="py-20 bg-primary">
+    <section id="skills" className="py-20 bg-secondary">
       <div className="container px-4 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -208,7 +208,7 @@ export default function Skills() {
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="w-full bg-secondary/20 rounded-full h-2.5">
+                        <div className="w-full bg-primary-foreground/20 rounded-full h-2.5">
                           <motion.div
                             className="animation-gradient h-2.5 rounded-full"
                             initial={{ width: 0 }}

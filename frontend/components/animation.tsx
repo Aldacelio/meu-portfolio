@@ -405,7 +405,7 @@ export default function Animation() {
           </p>
           <Button
             onClick={scrollToContent}
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/80 animate-bounce mt-8"
+            className="bg-primary-foreground text-primary hover:bg-primary-foreground/80 animate-bounce mt-8"
             size="lg"
           >
             <ArrowDown className="mr-2 h-4 w-4" />
