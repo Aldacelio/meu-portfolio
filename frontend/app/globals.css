@@ -7,8 +7,8 @@
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
 
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 210 13% 89%;
+    --secondary-foreground: 215 28% 17%/25%;
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 9%;
@@ -34,8 +34,8 @@
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 98%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: 215 28% 17%/25%;
+    --secondary-foreground: 210 13% 89%;
 
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 100%;
