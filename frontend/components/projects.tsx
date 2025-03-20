@@ -66,11 +66,9 @@ export default function Projects() {
 
         <Tabs defaultValue="all" value={activeCategory} onValueChange={setActiveCategory} className="mb-8">
           <div className="flex justify-center">
-            <TabsList>
-              <TabsTrigger value="all">Todos</TabsTrigger>
-              <TabsTrigger value="web">Web</TabsTrigger>
-              <TabsTrigger value="mobile">Mobile</TabsTrigger>
-              <TabsTrigger value="ai">AI/ML</TabsTrigger>
+            <TabsList className="bg-card">
+              <TabsTrigger value="all" className="data-[state=active]:bg-card-foreground data-[state=active]:text-card">Todos</TabsTrigger>
+              <TabsTrigger value="web" className="data-[state=active]:bg-card-foreground data-[state=active]:text-card">Web</TabsTrigger>
             </TabsList>
           </div>
         </Tabs>
