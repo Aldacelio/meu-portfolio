@@ -1,51 +1,171 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
-import { useToast } from "@/hooks/use-toast"
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 
 export default function Contact() {
-  const { toast } = useToast()
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: "Email",
+      content: "aldacelio368@gmail.com",
+    },
+    {
+      icon: Phone,
+      title: "Telefone",
+      content: "+55 (11) 98765-4321",
+    },
+    {
+      icon: MapPin,
+      title: "Localização",
+      content: "Quixadá, CE - Brasil",
+      className: "pb-4",
+    },
+  ];
+
+  const socialLinks = [
+    {
+      icon: Github,
+      href: "https://github.com/aldacelio",
+      label: "GitHub",
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/antonio-aldac%C3%A9lio-a42a1212b/",
+      label: "LinkedIn",
+    },
+    {
+      icon: Instagram,
+      href: "https://instagram.com/dudu.oli132",
+      label: "Instagram",
+    },
+  ];
+
+  const formFields = [
+    {
+      id: "name",
+      label: "Nome",
+      type: "text",
+      placeholder: "Seu nome",
+      colSpan: true,
+    },
+    {
+      id: "email",
+      label: "Email",
+      type: "email",
+      placeholder: "seu.email@exemplo.com",
+      colSpan: true,
+    },
+    {
+      id: "subject",
+      label: "Assunto",
+      type: "text",
+      placeholder: "Assunto da mensagem",
+      colSpan: false,
+    },
+    {
+      id: "message",
+      label: "Mensagem",
+      type: "textarea",
+      placeholder: "Sua mensagem...",
+      rows: 5,
+      colSpan: false,
+    },
+  ];
+
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
-  })
+  });
+  const LoadingButton = ({ isSubmitting }: { isSubmitting: boolean }) => (
+    <Button type="submit" className="w-full" disabled={isSubmitting}>
+      {isSubmitting ? (
+        <span className="flex items-center">
+          <svg
+            className="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            />
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            />
+          </svg>
+          Enviando...
+        </span>
+      ) : (
+        <span className="flex items-center">
+          <Send className="mr-2 h-4 w-4" />
+          Enviar Mensagem
+        </span>
+      )}
+    </Button>
+  );
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     toast({
       title: "Mensagem enviada!",
       description: "Obrigado pelo contato. Responderei o mais breve possível.",
-    })
+      variant: "success",
+    });
 
     setFormData({
       name: "",
       email: "",
       subject: "",
       message: "",
-    })
+    });
 
-    setIsSubmitting(false)
-  }
+    setIsSubmitting(false);
+  };
 
   return (
     <section id="contact" className="py-20">
@@ -73,66 +193,43 @@ export default function Contact() {
             <Card className="h-full">
               <CardHeader>
                 <CardTitle>Informações de Contato</CardTitle>
-                <CardDescription>Várias formas de entrar em contato comigo.</CardDescription>
+                <CardDescription>
+                  Várias formas de entrar em contato comigo.
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6 mt-4">
-                <div className="flex items-start space-x-4">
-                  <Mail className="h-6 w-6 text-indigo-500 mt-0.5" />
-                  <div>
-                    <h3 className="font-medium">Email</h3>
-                    <p className="text-sm text-muted-foreground">aldacelio368@gmail.com</p>
+                {contactInfo.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`flex items-start space-x-4 ${
+                      item.className || ""
+                    }`}
+                  >
+                    <item.icon className="h-6 w-6 text-indigo-500 mt-0.5" />
+                    <div>
+                      <h3 className="font-medium">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">
+                        {item.content}
+                      </p>
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <Phone className="h-6 w-6 text-indigo-500 mt-0.5" />
-                  <div>
-                    <h3 className="font-medium">Telefone</h3>
-                    <p className="text-sm text-muted-foreground">+55 (11) 98765-4321</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4 pb-4">
-                  <MapPin className="h-6 w-6 text-indigo-500 mt-0.5" />
-                  <div>
-                    <h3 className="font-medium">Localização</h3>
-                    <p className="text-sm text-muted-foreground">Quixadá, CE - Brasil</p>
-                  </div>
-                </div>
+                ))}
 
                 <div className="pt-6 border-t">
                   <h3 className="font-medium mb-4">Redes Sociais</h3>
                   <div className="flex space-x-4">
-                    <Button variant="outline" size="icon" asChild>
-                      <a
-                        href="https://github.com/aldacelio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="GitHub"
-                      >
-                        <Github className="h-5 w-5" />
-                      </a>
-                    </Button>
-                    <Button variant="outline" size="icon" asChild>
-                      <a
-                        href="https://www.linkedin.com/in/antonio-aldac%C3%A9lio-a42a1212b/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn" 
-                      >
-                        <Linkedin className="h-5 w-5" />
-                      </a>
-                    </Button>
-                    <Button variant="outline" size="icon" asChild>
-                      <a
-                        href="https://instagram.com/dudu.oli132"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                      >
-                        <Instagram className="h-5 w-5" />
-                      </a>
-                    </Button>
+                    {socialLinks.map((social, index) => (
+                      <Button key={index} variant="outline" size="icon" asChild>
+                        <a
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={social.label}
+                        >
+                          <social.icon className="h-5 w-5" />
+                        </a>
+                      </Button>
+                    ))}
                   </div>
                 </div>
               </CardContent>
@@ -149,102 +246,51 @@ export default function Contact() {
               <CardHeader>
                 <CardTitle>Envie uma Mensagem</CardTitle>
                 <CardDescription>
-                  Preencha o formulário abaixo e entrarei em contato o mais breve possível.
+                  Preencha o formulário abaixo e entrarei em contato o mais
+                  breve possível.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">
-                        Nome
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="Seu nome"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">
-                        Email
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="seu.email@exemplo.com"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium">
-                      Assunto
-                    </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      placeholder="Assunto da mensagem"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Mensagem
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Sua mensagem..."
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      <span className="flex items-center">
-                        <svg
-                          className="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
+                    {formFields.map((field) => (
+                      <div
+                        key={field.id}
+                        className={`space-y-2 ${
+                          !field.colSpan ? "md:col-span-2" : ""
+                        }`}
+                      >
+                        <label
+                          htmlFor={field.id}
+                          className="text-sm font-medium"
                         >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          ></circle>
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          ></path>
-                        </svg>
-                        Enviando...
-                      </span>
-                    ) : (
-                      <span className="flex items-center">
-                        <Send className="mr-2 h-4 w-4" />
-                        Enviar Mensagem
-                      </span>
-                    )}
-                  </Button>
+                          {field.label}
+                        </label>
+                        {field.type === "textarea" ? (
+                          <Textarea
+                            id={field.id}
+                            name={field.id}
+                            placeholder={field.placeholder}
+                            rows={field.rows}
+                            value={formData[field.id as keyof typeof formData]}
+                            onChange={handleChange}
+                            required
+                          />
+                        ) : (
+                          <Input
+                            id={field.id}
+                            name={field.id}
+                            type={field.type}
+                            placeholder={field.placeholder}
+                            value={formData[field.id as keyof typeof formData]}
+                            onChange={handleChange}
+                            required
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  <LoadingButton isSubmitting={isSubmitting} />
                 </form>
               </CardContent>
             </Card>
@@ -252,5 +298,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
