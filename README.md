@@ -1,7 +1,7 @@
 # 🚀 Meu Portfólio
 
 <p align="center">
-  <img src="public/preview.png" alt="Preview do Portfólio" width="100%" />
+  <img src="frontend/public/preview.png" alt="Preview do Portfólio" width="100%" />
 </p>
 
 ## 💻 Projeto
