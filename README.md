@@ -6,7 +6,7 @@
 
 ## 💻 Projeto
 
-Este é meu portfólio pessoal, desenvolvido com tecnologias modernas para apresentar meus projetos e habilidades como desenvolvedor. O site conta com design responsivo, animações suaves e modo dark/light.
+Este é meu portfólio pessoal, desenvolvido com tecnologias modernas para apresentar meus projetos e habilidades como desenvolvedor. O site conta com design responsivo, animações suaves e modo dark/light. [Veja aqui meu portfólio](https://meu-portfolio-flax-zeta.vercel.app/)
 
 ## ✨ Tecnologias
 
