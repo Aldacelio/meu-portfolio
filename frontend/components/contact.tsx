@@ -24,6 +24,7 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const contactInfo = [
@@ -149,22 +150,40 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const formElement = e.currentTarget as HTMLFormElement;
 
-    toast({
-      title: "Mensagem enviada!",
-      description: "Obrigado pelo contato. Responderei o mais breve possível.",
-      variant: "success",
-    });
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formElement,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+      toast({
+        title: "Mensagem enviada!",
+        description:
+          "Obrigado pelo contato. Responderei o mais breve possível.",
+        variant: "success",
+      });
 
-    setIsSubmitting(false);
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Erro ao enviar mensagem:", error);
+      toast({
+        title: "Erro ao enviar mensagem",
+        description:
+          "Ocorreu um erro ao tentar enviar sua mensagem. Por favor, tente novamente mais tarde.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
