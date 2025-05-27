@@ -105,7 +105,7 @@ export default function About() {
 
                 <div className="mt-8">
                   <Button asChild>
-                    <a href="https://export-download.canva.com/v9nEw/DAGhhjv9nEw/37/0-424929723212114446.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20250512%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250512T134007Z&X-Amz-Expires=90107&X-Amz-Signature=82c01c590217e930e889182c775fe60e4f0aba14c5dbaac23a031d475fe9ef9f&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27Antonio%2520Aldac%25C3%25A9lio.pdf&response-expires=Tue%2C%2013%20May%202025%2014%3A41%3A54%20GMT" download>
+                    <a href="https://drive.google.com/file/d/1oDXnw5Y_ivB5ISNLmOpf0vfyWGr0Xj_1/view?usp=sharing" download>
                       <Download className="mr-2 h-4 w-4" />
                       Download CV
                     </a>

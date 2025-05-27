@@ -36,7 +36,7 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Telefone",
-      content: "+55 (11) 98765-4321",
+      content: "+55 (88) 98106-2074",
     },
     {
       icon: MapPin,

@@ -12,22 +12,22 @@ import { Github, Eye } from "lucide-react"
 const projects = [
   {
     id: 1,
-    title: "Landing Page Contrata+",
-    description: "Uma landing page para coletar dados sobre um projeto de contratação de serviços.",
-    image: "/contrata.png",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    demoUrl: "https://landing-page-contrata-frontend.vercel.app/",
-    repoUrl: "https://github.com/Aldacelio/landing-page-contrata-frontend",
-    category: "web",
-  },
-  {
-    id: 2,
     title: "D-Barber",
     description: "Plataforma de agendamentos de serviços de barbearia.",
     image: "/dBarber.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "NeonDB", "Vercel"],
     demoUrl: "https://d-barber.vercel.app/",
     repoUrl: "https://github.com/Aldacelio/d-barber",
+    category: "web",
+  },
+  {
+    id: 2,
+    title: "Landing Page Contrata+",
+    description: "Uma landing page para coletar dados sobre um projeto de contratação de serviços.",
+    image: "/contrata.png",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    demoUrl: "https://landing-page-contrata-frontend.vercel.app/",
+    repoUrl: "https://github.com/Aldacelio/landing-page-contrata-frontend",
     category: "web",
   },
   {

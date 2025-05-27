@@ -18,11 +18,6 @@ export default function Footer() {
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild className="h-8 w-8">
-              <a href="https://twitter.com/username" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <Twitter className="h-4 w-4" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" asChild className="h-8 w-8">
               <a href="https://www.instagram.com/dudu.oli132/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <Instagram className="h-4 w-4" />
               </a>
