@@ -55,10 +55,6 @@ O layout foi desenvolvido pensando em uma experiência de usuário moderna e pro
 - Seções bem organizadas
 - Experiência visual agradável
 
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
 ---
 
 Feito por Aldacélio 👋 [Entre em contato!](https://www.linkedin.com/in/antonio-aldacélio-a42a1212b/)
