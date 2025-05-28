@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Twitter, Instagram } from 'lucide-react'
+import { Github, Linkedin, Instagram } from 'lucide-react'
 
 export default function Footer() {
   return (
