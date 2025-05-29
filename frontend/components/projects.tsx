@@ -40,6 +40,16 @@ const projects = [
     repoUrl: "https://github.com/Aldacelio/Fighters-D",
     category: "web",
   },
+  {
+    id: 4,
+    title: "API Contrata+",
+    description: "API REST desenvolvida para o armazenamento dos dados do formulário de feedback.",
+    image: "/contrata-backend.png",
+    tags: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Render", "Swagger"],
+    demoUrl: "https://landing-page-contrata-backend.onrender.com/swagger-ui.html",
+    repoUrl: "https://github.com/Aldacelio/landing-page-contrata-backend",
+    category: "api",
+}
 ]
 
 export default function Projects() {
@@ -69,6 +79,7 @@ export default function Projects() {
             <TabsList className="bg-card">
               <TabsTrigger value="all" className="data-[state=active]:bg-card-foreground data-[state=active]:text-card">Todos</TabsTrigger>
               <TabsTrigger value="web" className="data-[state=active]:bg-card-foreground data-[state=active]:text-card">Web</TabsTrigger>
+              <TabsTrigger value="api" className="data-[state=active]:bg-card-foreground data-[state=active]:text-card">Api</TabsTrigger>
             </TabsList>
           </div>
         </Tabs>
